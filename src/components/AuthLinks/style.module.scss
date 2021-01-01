@@ -1,0 +1,18 @@
+@import '../../styles/variables';
+
+.authLinks {
+	width: 130px;
+
+	&.flex {
+		justify-content: space-between;
+	}
+
+	a {
+		color: $darkColor;
+	}
+
+	.btn {
+		background-color: $darkColor;
+		color: $primaryColor;
+	}
+}

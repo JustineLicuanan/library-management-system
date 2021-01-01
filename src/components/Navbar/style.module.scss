@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+.navbar {
+	background-color: $primaryColor;
+	color: $primaryTextColor;
+	height: $navbarHeight;
+
+	& > .flex {
+		justify-content: space-between;
+	}
+
+	.burger {
+		cursor: pointer;
+
+		div {
+			background-color: $primaryTextColor;
+			width: 25px;
+			height: 3px;
+			margin: 5px;
+		}
+	}
+
+	.logo {
+		font-size: 20px;
+		margin: 0 auto 0 10px;
+	}
+}

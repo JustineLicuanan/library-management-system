@@ -6,6 +6,33 @@
 	box-sizing: border-box;
 }
 
+html {
+	height: 100%;
+}
+
 body {
+	position: relative;
+	min-height: 100%;
+	padding: 0 0 $footerHeight;
 	font-family: $fontFamily;
+	background-color: $darkColor;
+	color: $primaryColor;
+	line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 300;
+	margin: 10px 0;
+	line-height: 1.2;
+}
+
+a {
+	text-decoration: none;
+	color: $lightColor;
+}
+
+ul {
+	list-style-type: none;
 }
