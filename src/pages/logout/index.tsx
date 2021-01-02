@@ -11,7 +11,7 @@ const Logout = () => {
 	useEffect(() => {
 		dispatch(removeUser());
 		history.push('/login');
-	}, []);
+	});
 
 	return null;
 };
