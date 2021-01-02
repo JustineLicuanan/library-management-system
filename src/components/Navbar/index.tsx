@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import classes from './style.module.scss';
 import AuthLinks from '../AuthLinks';
@@ -15,9 +16,9 @@ const Navbar = () => {
 					<div></div>
 				</div>
 
-				<a href='/' className={classes.logo}>
+				<Link to='/' className={classes.logo}>
 					<h3>{process.env.REACT_APP_SITE_NAME}</h3>
-				</a>
+				</Link>
 
 				{isAuth ? null : <AuthLinks />}
 			</div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import classes from './style.module.scss';
 
@@ -6,12 +7,12 @@ const AuthLinks = () => {
 	return (
 		<ul className={`${classes.authLinks} ${classes.flex} flex`}>
 			<li>
-				<a href='/login'>Login</a>
+				<Link to='/login'>Login</Link>
 			</li>
 			<li>
-				<a href='/register' className={`btn ${classes.btn}`}>
+				<Link to='/register' className={`btn ${classes.btn}`}>
 					Register
-				</a>
+				</Link>
 			</li>
 		</ul>
 	);
