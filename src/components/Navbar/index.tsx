@@ -1,11 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { selectUser } from '../../redux/slices/userSlice';
 import classes from './style.module.scss';
 import AuthLinks from '../AuthLinks';
+import AccountLinks from '../AccountLinks';
 
 const Navbar = () => {
-	const isAuth = false;
+	const user = useSelector(selectUser);
 
 	return (
 		<nav className={classes.navbar}>
@@ -20,7 +23,7 @@ const Navbar = () => {
 					<h3>{process.env.REACT_APP_SITE_NAME}</h3>
 				</Link>
 
-				{isAuth ? null : <AuthLinks />}
+				{user.email ? <AccountLinks /> : <AuthLinks />}
 			</div>
 		</nav>
 	);

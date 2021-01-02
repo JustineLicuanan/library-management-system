@@ -1,6 +1,6 @@
 @import '../../styles/variables';
 
-.authLinks {
+.accLinks {
 	&.flex {
 		justify-content: space-between;
 	}
@@ -12,6 +12,6 @@
 	.btn {
 		background-color: $darkColor;
 		color: $primaryColor;
-		margin: 0 10px;
+		margin: 0 5px;
 	}
 }

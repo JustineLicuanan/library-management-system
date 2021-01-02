@@ -1,14 +1,19 @@
 import React, { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
+import { setUser } from '../../redux/slices/userSlice';
 import classes from './style.module.scss';
 
 const LoginForm = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const dispatch = useDispatch();
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+
+		dispatch(setUser());
 	};
 
 	return (
