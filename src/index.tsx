@@ -15,22 +15,29 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter } from "react-router-dom";
+import { HashRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 // core styles
-import "./scss/volt.scss";
+import './scss/volt.scss';
 
 // vendor styles
-import "@fortawesome/fontawesome-free/css/all.css";
-import "react-datetime/css/react-datetime.css";
+import '@fortawesome/fontawesome-free/css/all.css';
+import 'react-datetime/css/react-datetime.css';
 
-import HomePage from "./pages/HomePage";
-import ScrollToTop from "./components/ScrollToTop";
+import HomePage from './pages/HomePage';
+import ScrollToTop from './components/ScrollToTop';
+
+const queryClient = new QueryClient();
 
 ReactDOM.render(
-  <HashRouter>
-    <ScrollToTop />
-    <HomePage />
-  </HashRouter>,
-  document.getElementById("root")
+	<QueryClientProvider client={queryClient}>
+		<HashRouter>
+			<ScrollToTop />
+			<HomePage />
+		</HashRouter>
+		<ReactQueryDevtools initialIsOpen={false} />
+	</QueryClientProvider>,
+	document.getElementById('root')
 );

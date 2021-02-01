@@ -42,6 +42,8 @@ import Code from '../components/CodeEditor';
 import GitHubButton from 'react-github-btn';
 
 import { Routes } from '../routes';
+import ThemesbergLogoIcon from '../assets/img/themesberg.svg';
+import ThemesbergLogo from '../assets/img/themesberg-logo.svg';
 import MockupPresentation from '../assets/img/mockup-presentation.png';
 import ReactHero from '../assets/img/technologies/react-hero-logo.svg';
 import MapboxImg from '../assets/img/mockup-map-presentation.png';
@@ -53,7 +55,6 @@ import ReactLogo from '../assets/img/technologies/react-logo.svg';
 
 import pages from '../data/pages';
 import features from '../data/features';
-import { meta } from '../meta';
 
 export default () => {
 	const PagePreview = (props) => {
@@ -142,7 +143,7 @@ export default () => {
 					>
 						<Image src={ReactHero} />
 						<span className='ms-2 brand-text d-none d-md-inline'>
-							{meta.title}
+							Volt React
 						</span>
 					</Navbar.Brand>
 
@@ -164,6 +165,9 @@ export default () => {
 								</Nav.Link>
 								<Nav.Link as={HashLink} to='#getting-started'>
 									Getting Started
+								</Nav.Link>
+								<Nav.Link as={HashLink} to='#download'>
+									Upgrade to Pro
 								</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
@@ -188,8 +192,10 @@ export default () => {
 							<div className='react-big-icon d-none d-lg-block'>
 								<span className='fab fa-react'></span>
 							</div>
-							<h1 className='fw-bolder text-secondary'>{meta.longTitle}</h1>
-							<p className='text-muted fw-light mb-5 h5'>{meta.description}</p>
+							<h1 className='fw-bolder text-secondary'>Volt React Dashboard</h1>
+							<p className='text-muted fw-light mb-5 h5'>
+								Open source powered by React.js and Bootstrap 5
+							</p>
 							<div className='d-flex align-items-center justify-content-center'>
 								<Button
 									variant='secondary'
@@ -205,26 +211,30 @@ export default () => {
 								</Button>
 								<GitHubButton
 									className='mt-lg-2'
-									href='https://github.com/JustineLicuanan/library-management-system'
+									href='https://github.com/themesberg/volt-react-dashboard'
 									data-size='large'
 									data-show-count='true'
-									aria-label='Star JustineLicuanan/library-management-system on GitHub'
+									aria-label='Star themesberg/volt-react-dashboard on GitHub'
 								>
 									Star
 								</GitHubButton>
 							</div>
 							<div className='d-flex justify-content-center flex-column mb-6 mb-lg-5 mt-5'>
 								<div className='text-center'>
-									<a href={meta.authorWebsite} target='_blank' rel='noreferrer'>
+									<a
+										href='https://themesberg.com'
+										target='_blank'
+										rel='noreferrer'
+									>
 										<Image
-											src={ReactHero}
+											src={ThemesbergLogoIcon}
 											height={25}
 											width={25}
 											className='mb-3'
-											alt={meta.author}
+											alt='Themesberg Logo'
 										/>
 										<p className='text-muted font-small m-0'>
-											a {meta.author} production
+											A Themesberg production
 										</p>
 									</a>
 								</div>
@@ -537,8 +547,8 @@ export default () => {
 									size='md'
 									to={Routes.DocsFolderStructure.path}
 									target='_blank'
-									className='text-dark'
 									rel='noreferrer'
+									className='text-dark'
 								>
 									<FontAwesomeIcon icon={faCodeBranch} className='me-2' />{' '}
 									Folder Structure
@@ -911,11 +921,11 @@ export default () => {
 								className='me-lg-3 mb-3 d-flex align-items-center'
 							>
 								<Image src={ReactHero} />
-								<span className='ms-2 brand-text'>{meta.title}</span>
+								<span className='ms-2 brand-text'>Volt React</span>
 							</Navbar.Brand>
 							<p>
-								{meta.title} is powered by PERN Stack with TypeScript and
-								GraphQL.
+								Volt React is a free and open source admin dashboard template
+								powered by React.js and Bootstrap 5.
 							</p>
 						</Col>
 						<Col xs={6} md={2} className='mb-5 mb-lg-0'>
@@ -1030,16 +1040,16 @@ export default () => {
 					<Row>
 						<Col className='mb-md-2'>
 							<Card.Link
-								href={meta.authorWebsite}
+								href='https://themesberg.com'
 								target='_blank'
 								rel='noreferrer'
 								className='d-flex justify-content-center'
 							>
 								<Image
-									src={ReactHero}
+									src={ThemesbergLogo}
 									height={35}
 									className='d-block mx-auto mb-3'
-									alt='React Hero Logo'
+									alt='Themesberg Logo'
 								/>
 							</Card.Link>
 							<div
@@ -1047,11 +1057,9 @@ export default () => {
 								role='contentinfo'
 							>
 								<p className='font-weight-normal font-small mb-0'>
-									Copyright © {meta.author} 2020-
-									<span className='current-year'>
-										{new Date().getFullYear()}
-									</span>
-									. All rights reserved.
+									Copyright © Themesberg 2019-
+									<span className='current-year'>2021</span>. All rights
+									reserved.
 								</p>
 							</div>
 						</Col>

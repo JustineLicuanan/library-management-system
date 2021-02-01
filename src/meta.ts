@@ -1,8 +1,10 @@
-export const meta = {
+export const myMeta = {
 	website: 'https://libraryms.now.sh',
+	graphqlEndpoint:
+		process.env.GRAPHQL_ENDPOINT || 'http://127.0.0.1:4000/graphql',
 	title: 'Library MS',
 	longTitle: 'Library Management System',
-	description: 'Made using PERN Stack with TypeScript and GraphQL',
-	author: 'Justine Licuanan',
+	description: 'Made using PERN Stack with GraphQL',
+	authorName: 'Justine Licuanan',
 	authorWebsite: 'https://github.com/JustineLicuanan',
 };
