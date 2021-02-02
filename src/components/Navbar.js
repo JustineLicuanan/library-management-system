@@ -21,18 +21,15 @@ import {
 	ListGroup,
 	InputGroup,
 } from '@themesberg/react-bootstrap';
-import { useHistory } from 'react-router-dom';
 
-import { Routes } from '../routes';
 import { useQueryAuth } from '../hooks/useQueryAuth';
 import { useMutationLogout } from '../hooks/useMutationLogout';
 import NOTIFICATIONS_DATA from '../data/notifications';
 import Profile3 from '../assets/img/team/profile-picture-3.jpg';
 
 export default (props) => {
-	const history = useHistory();
-	const { data } = useQueryAuth();
-	const { mutate } = useMutationLogout();
+	const user = useQueryAuth();
+	const logoutMutation = useMutationLogout();
 	const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
 	const areNotificationsRead = notifications.reduce(
 		(acc, notif) => acc && notif.read,
@@ -43,11 +40,6 @@ export default (props) => {
 		setTimeout(() => {
 			setNotifications(notifications.map((n) => ({ ...n, read: true })));
 		}, 300);
-	};
-
-	const handleLogout = () => {
-		mutate();
-		history.push(Routes.Signin.path);
 	};
 
 	const Notification = (props) => {
@@ -137,7 +129,7 @@ export default (props) => {
 									/>
 									<div className='media-body ms-2 text-dark align-items-center d-none d-lg-block'>
 										<span className='mb-0 font-small fw-bold'>
-											{data.email}
+											{user.data.email}
 										</span>
 									</div>
 								</div>
@@ -161,7 +153,10 @@ export default (props) => {
 
 								<Dropdown.Divider />
 
-								<Dropdown.Item className='fw-bold' onClick={handleLogout}>
+								<Dropdown.Item
+									className='fw-bold'
+									onClick={() => logoutMutation.mutate()}
+								>
 									<FontAwesomeIcon
 										icon={faSignOutAlt}
 										className='text-danger me-2'

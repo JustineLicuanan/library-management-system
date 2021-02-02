@@ -11,7 +11,7 @@ import {
 	Container,
 	InputGroup,
 } from '@themesberg/react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 
 import { Routes } from '../../routes';
@@ -20,20 +20,11 @@ import { myMeta } from '../../meta';
 import { useMutationLogin } from '../../hooks/useMutationLogin';
 
 export default () => {
-	const history = useHistory();
-	const { mutate, data } = useMutationLogin();
+	const loginMutation = useMutationLogin();
 
 	React.useEffect(() => {
 		document.title = `Login | ${myMeta.title}`;
 	}, []);
-
-	React.useEffect(() => {
-		if (data) {
-			history.push(Routes.DashboardOverview.path);
-		}
-
-		// eslint-disable-next-line
-	}, [data]);
 
 	return (
 		<main>
@@ -73,7 +64,7 @@ export default () => {
 										return errors;
 									}}
 									onSubmit={(values, { setSubmitting }) => {
-										mutate(values);
+										loginMutation.mutate(values);
 										setSubmitting(false);
 									}}
 								>
