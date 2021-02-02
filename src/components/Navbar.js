@@ -27,7 +27,7 @@ import { useMutationLogout } from '../hooks/useMutationLogout';
 import NOTIFICATIONS_DATA from '../data/notifications';
 import Profile3 from '../assets/img/team/profile-picture-3.jpg';
 
-export default (props) => {
+export default () => {
 	const user = useQueryAuth();
 	const logoutMutation = useMutationLogout();
 	const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
@@ -129,7 +129,7 @@ export default (props) => {
 									/>
 									<div className='media-body ms-2 text-dark align-items-center d-none d-lg-block'>
 										<span className='mb-0 font-small fw-bold'>
-											{user.data.email}
+											{user.data?.email}
 										</span>
 									</div>
 								</div>
