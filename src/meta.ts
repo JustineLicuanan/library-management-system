@@ -1,5 +1,5 @@
 export const myMeta = {
-	website: 'https://libraryms.now.sh',
+	website: 'https://libraryms.ga',
 	graphqlEndpoint:
 		process.env.REACT_APP_GRAPHQL_ENDPOINT || 'http://localhost:4000/graphql',
 	title: 'Library MS',
