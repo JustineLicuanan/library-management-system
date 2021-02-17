@@ -1,11 +1,7 @@
 # Library Management System
 
-## Quick Overview
+Steps to run this project:
 
-```bash
-# Install dependencies
-yarn
-
-# Run development server
-yarn start
-```
+1. Run `yarn cwd:server` command
+1. Run `yarn test:server` command (optional)
+1. Run `yarn dev:server` command to start local development server

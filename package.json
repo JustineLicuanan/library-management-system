@@ -1,95 +1,13 @@
 {
-	"name": "library-management-system",
-	"author": "Justine Licuanan",
-	"license": "MIT",
-	"version": "1.0.0",
 	"private": true,
-	"dependencies": {
-		"@fortawesome/fontawesome-free": "^5.15.2",
-		"@fortawesome/fontawesome-svg-core": "^1.2.34",
-		"@fortawesome/free-brands-svg-icons": "^5.15.2",
-		"@fortawesome/free-regular-svg-icons": "^5.15.2",
-		"@fortawesome/free-solid-svg-icons": "^5.15.2",
-		"@fortawesome/react-fontawesome": "^0.1.14",
-		"@themesberg/react-bootstrap": "^1.4.1",
-		"bootstrap": "5.0.0-beta1",
-		"chartist": "^0.11.4",
-		"chartist-plugin-tooltips-updated": "^0.1.4",
-		"formik": "^2.2.6",
-		"graphql": "^15.5.0",
-		"graphql-request": "^3.4.0",
-		"moment-timezone": "^0.5.32",
-		"react": "^17.0.1",
-		"react-chartist": "^0.14.3",
-		"react-copy-to-clipboard": "^5.0.3",
-		"react-datetime": "^3.0.4",
-		"react-dom": "^17.0.1",
-		"react-github-btn": "^1.2.0",
-		"react-live": "^2.2.3",
-		"react-query": "^3.6.0",
-		"react-router-dom": "^5.2.0",
-		"react-router-hash-link": "^2.3.1",
-		"react-transition-group": "^4.4.1",
-		"simplebar-react": "^2.3.0",
-		"yup": "^0.32.8"
-	},
-	"devDependencies": {
-		"@testing-library/jest-dom": "^5.11.9",
-		"@testing-library/react": "^11.2.3",
-		"@testing-library/user-event": "^12.6.2",
-		"@types/jest": "^26.0.20",
-		"@types/node": "^14.14.22",
-		"@types/react": "^17.0.0",
-		"@types/react-dom": "^17.0.0",
-		"@types/react-router-dom": "^5.1.7",
-		"node-sass": "^4.14.1",
-		"react-scripts": "4.0.1",
-		"typescript": "^4.1.3"
-	},
+	"author": "Justine Licuanan",
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"build-local": "PUBLIC_URL=./ react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
-	},
-	"eslintConfig": {
-		"extends": "react-app",
-		"overrides": [
-			{
-				"files": [
-					"src/**/*.ts",
-					"src/**/*.tsx",
-					"src/**/*.js",
-					"src/**/*.jsx"
-				],
-				"rules": {
-					"import/no-anonymous-default-export": [
-						"error",
-						{
-							"allowArray": true,
-							"allowArrowFunction": true,
-							"allowAnonymousClass": false,
-							"allowAnonymousFunction": false,
-							"allowCallExpression": true,
-							"allowLiteral": false,
-							"allowObject": false
-						}
-					]
-				}
-			}
-		]
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
+		"cwd:server": "yarn --cwd ./server",
+		"cwd:web": "yarn --cwd ./web",
+		"dev:server": "yarn cwd:server dev",
+		"dev:web": "yarn cwd:web start",
+		"test:server": "yarn cwd:server test",
+		"test:web": "yarn cwd:web test",
+		"commit": "git add . && git commit -m"
 	}
 }
