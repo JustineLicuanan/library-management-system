@@ -8,6 +8,7 @@
 		"dev:web": "yarn cwd:web start",
 		"test:server": "yarn cwd:server test",
 		"test:web": "yarn cwd:web test",
-		"commit": "git add . && git commit -m"
+		"commit": "git add . && git commit -m",
+		"origin": "git push origin master"
 	}
 }
