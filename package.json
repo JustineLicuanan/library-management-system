@@ -2,6 +2,9 @@
 	"private": true,
 	"scripts": {
 		"commit": "git add . && git commit -m",
-		"push": "git push origin master"
+		"push": "git push origin master",
+		"cwd:server": "yarn --cwd ./packages/server",
+		"cwd:web": "yarn --cwd ./packages/web",
+		"i": "yarn cwd:server && yarn cwd:web"
 	}
 }
