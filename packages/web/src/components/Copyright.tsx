@@ -7,7 +7,12 @@ const Copyright = () => {
 	return (
 		<Typography variant='body2' color='textSecondary' align='center'>
 			{'Made w/ ❤️ by '}
-			<Link color='inherit' href={constants.authorWebsite}>
+			<Link
+				color='inherit'
+				href={constants.authorWebsite}
+				target='_blank'
+				rel='noopener'
+			>
 				{constants.authorName}
 			</Link>
 			{' © '}

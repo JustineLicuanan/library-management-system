@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
 import clsx from 'clsx';
-import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { useStyles } from './styles';
 import NavBar from '../NavBar';
@@ -19,7 +18,6 @@ const App = () => {
 
 	return (
 		<div className={classes.root}>
-			<CssBaseline />
 			<Router>
 				<NavBar handleDrawerOpen={handleDrawerOpen} open={open} />
 				<NavDrawer open={open} handleDrawerClose={handleDrawerClose} />
