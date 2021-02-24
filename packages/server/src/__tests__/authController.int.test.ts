@@ -14,6 +14,7 @@ const dummyInput = {
 	name: 'Coco',
 	email: 'coco@gmail.com',
 	password: 'Coco@2',
+	phone: '09223456789',
 };
 
 let token = '';
@@ -40,6 +41,7 @@ describe('POST_register controller tests', () => {
 				name: ' ',
 				email: 'cocogmail.com',
 				password: 'just5',
+				phone: ' ',
 			});
 
 		expect(JSON.parse(text)).toMatchSnapshot();
@@ -52,9 +54,10 @@ describe('POST_register controller tests', () => {
 			.send(dummyInput);
 
 		const { user: resUser } = JSON.parse(text) as ObjectWithUser;
-		const { id, token: jwt, ...user } = resUser;
+		const { id, dateOfMembership, token: jwt, ...user } = resUser;
 
 		expect(id).toBeDefined();
+		expect(dateOfMembership).toBeDefined();
 		expect(jwt).toBeDefined();
 		expect(user).toMatchSnapshot();
 	});
@@ -111,10 +114,11 @@ describe('POST_login controller tests', () => {
 			.send(dummyInput);
 
 		const { user: resUser } = JSON.parse(text) as ObjectWithUser;
-		const { id, token: jwt, ...user } = resUser;
+		const { id, dateOfMembership, token: jwt, ...user } = resUser;
 		token = jwt;
 
 		expect(id).toBeDefined();
+		expect(dateOfMembership).toBeDefined();
 		expect(jwt).toBeDefined();
 		expect(user).toMatchSnapshot();
 	});
@@ -129,9 +133,10 @@ describe('GET_me controller tests', () => {
 	it('can get "me" if logged in', async () => {
 		const { text } = await fetcher.get('/auth/me').set(...getAuthReqHeaders());
 		const { user: resUser } = JSON.parse(text) as ObjectWithUser;
-		const { id, token: jwt, ...user } = resUser;
+		const { id, dateOfMembership, token: jwt, ...user } = resUser;
 
 		expect(id).toBeDefined();
+		expect(dateOfMembership).toBeDefined();
 		expect(jwt).toBeDefined();
 		expect(user).toMatchSnapshot();
 	});

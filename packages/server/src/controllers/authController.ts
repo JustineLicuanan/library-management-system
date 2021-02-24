@@ -1,11 +1,16 @@
 import { compare } from 'bcryptjs';
 import { RequestHandler } from 'express';
+import { ParamsDictionary } from 'express-serve-static-core';
 import { getRepository } from 'typeorm';
 
 import { User } from '../entity/User';
 import { createToken } from '../lib/useToken';
 
-export const POST_register: RequestHandler = async (req, res) => {
+export const POST_register: RequestHandler<
+	ParamsDictionary,
+	any,
+	User
+> = async (req, res) => {
 	const userExists = await User.findOne({ email: req.body.email });
 
 	if (userExists) {
@@ -21,7 +26,7 @@ export const POST_register: RequestHandler = async (req, res) => {
 		return;
 	}
 
-	const user = await User.create(req.body as User).save();
+	const user = await User.create(req.body).save();
 	user.token = createToken(user);
 
 	const { password, tokenVersion, ...resUser } = user;

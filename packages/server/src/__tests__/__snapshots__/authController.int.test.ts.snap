@@ -43,6 +43,10 @@ exports[`GET_me controller tests can get "me" if logged in 1`] = `
 Object {
   "email": "coco@gmail.com",
   "name": "Coco",
+  "phone": "09223456789",
+  "role": "MEMBER",
+  "status": "NONE",
+  "totalBooksCheckedout": 0,
 }
 `;
 
@@ -72,6 +76,10 @@ exports[`POST_login controller tests can login correct credentials 1`] = `
 Object {
   "email": "coco@gmail.com",
   "name": "Coco",
+  "phone": "09223456789",
+  "role": "MEMBER",
+  "status": "NONE",
+  "totalBooksCheckedout": 0,
 }
 `;
 
@@ -105,6 +113,10 @@ exports[`POST_register controller tests can register not taken email 1`] = `
 Object {
   "email": "coco@gmail.com",
   "name": "Coco",
+  "phone": "09223456789",
+  "role": "MEMBER",
+  "status": "NONE",
+  "totalBooksCheckedout": 0,
 }
 `;
 
@@ -122,6 +134,10 @@ Object {
     Object {
       "message": "password must be at least 6 characters",
       "path": "password",
+    },
+    Object {
+      "message": "phone is a required field",
+      "path": "phone",
     },
   ],
 }
