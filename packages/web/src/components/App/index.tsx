@@ -6,6 +6,7 @@ import { useStyles } from './styles';
 import NavBar from '../NavBar';
 import NavDrawer from '../NavDrawer';
 import Home from '../../pages';
+import Register from '../../pages/register';
 import { routes } from '../../routes';
 
 const App = () => {
@@ -24,6 +25,10 @@ const App = () => {
 				<Switch>
 					<Route path={routes.dashboard.path} exact>
 						<Home fixedHeightPaper={fixedHeightPaper} />
+					</Route>
+
+					<Route path={routes.register.path} exact>
+						<Register />
 					</Route>
 				</Switch>
 			</Router>
