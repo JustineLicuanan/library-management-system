@@ -1,9 +1,11 @@
+import { useEffect } from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
 import { useStyles } from '../components/App/styles';
 import Copyright from '../components/Copyright';
+import { constants } from '../constants';
 
 interface Props {
 	fixedHeightPaper: string;
@@ -11,6 +13,10 @@ interface Props {
 
 const Home = ({ fixedHeightPaper }: Props) => {
 	const classes = useStyles();
+
+	useEffect(() => {
+		document.title = `Dashboard | ${constants.title}`;
+	}, []);
 
 	return (
 		<main className={classes.content}>
