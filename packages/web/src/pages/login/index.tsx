@@ -14,13 +14,13 @@ import Copyright from '../../components/Copyright';
 import { useStyles } from './styles';
 import { routes } from '../../routes';
 import { constants } from '../../constants';
-import { register as registerSchema } from '../../yup-schemas/authSchema';
+import { login as loginSchema } from '../../yup-schemas/authSchema';
 
-const Register = () => {
+const Login = () => {
 	const classes = useStyles();
 
 	useEffect(() => {
-		document.title = `Register | ${constants.title}`;
+		document.title = `Login | ${constants.title}`;
 	}, []);
 
 	return (
@@ -31,13 +31,13 @@ const Register = () => {
 					<LockOutlinedIcon />
 				</Avatar>
 				<Typography component='h1' variant='h5'>
-					Register
+					Login
 				</Typography>
 				<Formik
-					initialValues={{ name: '', phone: '', email: '', password: '' }}
-					validationSchema={registerSchema}
-					onSubmit={async (values) => {
-						console.log(values);
+					initialValues={{ email: '', password: '' }}
+					validationSchema={loginSchema}
+					onSubmit={(values) => {
+						console.log(JSON.stringify(values, null, 2));
 					}}
 				>
 					{({
@@ -51,41 +51,6 @@ const Register = () => {
 					}) => (
 						<form className={classes.form} onSubmit={handleSubmit} noValidate>
 							<Grid container spacing={2}>
-								<Grid item xs={12}>
-									<TextField
-										variant='outlined'
-										required
-										fullWidth
-										id='name'
-										label='Name'
-										name='name'
-										autoComplete='name'
-										placeholder='e.g.: John Doe'
-										onChange={handleChange}
-										onBlur={handleBlur}
-										value={values.name}
-										error={!!errors.name && touched.name}
-										helperText={errors.name && touched.name && errors.name}
-									/>
-								</Grid>
-								<Grid item xs={12}>
-									<TextField
-										variant='outlined'
-										required
-										fullWidth
-										id='phone'
-										label='Contact No.'
-										name='phone'
-										autoComplete='phone'
-										placeholder='e.g.: 09223456789'
-										type='tel'
-										onChange={handleChange}
-										onBlur={handleBlur}
-										value={values.phone}
-										error={!!errors.phone && touched.phone}
-										helperText={errors.phone && touched.phone && errors.phone}
-									/>
-								</Grid>
 								<Grid item xs={12}>
 									<TextField
 										variant='outlined'
@@ -131,16 +96,16 @@ const Register = () => {
 								className={classes.submit}
 								disabled={isSubmitting}
 							>
-								Register
+								Login
 							</Button>
 							<Grid container justify='flex-end'>
 								<Grid item>
 									<Link
-										to={routes.login.path}
+										to={routes.register.path}
 										variant='body2'
 										component={RouterLink}
 									>
-										Already have an account? Login
+										Don't have an account? Register
 									</Link>
 								</Grid>
 							</Grid>
@@ -153,4 +118,4 @@ const Register = () => {
 	);
 };
 
-export default Register;
+export default Login;

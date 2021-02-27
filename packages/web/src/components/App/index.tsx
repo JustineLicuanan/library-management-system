@@ -6,6 +6,7 @@ import { useStyles } from './styles';
 import NavBar from '../NavBar';
 import NavDrawer from '../NavDrawer';
 import Home from '../../pages';
+import Login from '../../pages/login';
 import Register from '../../pages/register';
 import { routes } from '../../routes';
 
@@ -14,12 +15,17 @@ const App = () => {
 	const [open, setOpen] = useState(false);
 	const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-	const handleDrawerOpen = () => setOpen(true);
-	const handleDrawerClose = () => setOpen(false);
+	const handleDrawerOpen = () => {
+		setOpen(true);
+	};
+
+	const handleDrawerClose = () => {
+		setOpen(false);
+	};
 
 	return (
-		<div className={classes.root}>
-			<Router>
+		<Router>
+			<div className={classes.root}>
 				<NavBar handleDrawerOpen={handleDrawerOpen} open={open} />
 				<NavDrawer open={open} handleDrawerClose={handleDrawerClose} />
 				<Switch>
@@ -30,9 +36,13 @@ const App = () => {
 					<Route path={routes.register.path} exact>
 						<Register />
 					</Route>
+
+					<Route path={routes.login.path} exact>
+						<Login />
+					</Route>
 				</Switch>
-			</Router>
-		</div>
+			</div>
+		</Router>
 	);
 };
 
