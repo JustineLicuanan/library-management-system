@@ -15,9 +15,11 @@ import { useStyles } from './styles';
 import { routes } from '../../routes';
 import { constants } from '../../constants';
 import { login as loginSchema } from '../../yup-schemas/authSchema';
+import { useLoginMutation } from '../../query-hooks/useLoginMutation';
 
 const Login = () => {
 	const classes = useStyles();
+	const loginMutation = useLoginMutation();
 
 	useEffect(() => {
 		document.title = `Login | ${constants.title}`;
@@ -36,8 +38,8 @@ const Login = () => {
 				<Formik
 					initialValues={{ email: '', password: '' }}
 					validationSchema={loginSchema}
-					onSubmit={(values) => {
-						console.log(JSON.stringify(values, null, 2));
+					onSubmit={async (values) => {
+						await loginMutation.mutateAsync(values);
 					}}
 				>
 					{({

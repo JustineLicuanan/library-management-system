@@ -15,9 +15,11 @@ import { useStyles } from './styles';
 import { routes } from '../../routes';
 import { constants } from '../../constants';
 import { register as registerSchema } from '../../yup-schemas/authSchema';
+import { useRegisterMutation } from '../../query-hooks/useRegisterMutation';
 
 const Register = () => {
 	const classes = useStyles();
+	const registerMutation = useRegisterMutation();
 
 	useEffect(() => {
 		document.title = `Register | ${constants.title}`;
@@ -37,7 +39,7 @@ const Register = () => {
 					initialValues={{ name: '', phone: '', email: '', password: '' }}
 					validationSchema={registerSchema}
 					onSubmit={async (values) => {
-						console.log(values);
+						await registerMutation.mutateAsync(values);
 					}}
 				>
 					{({

@@ -4,8 +4,14 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 import { useStyles } from './styles';
+import NavItem from '../NavItem';
+import { routes } from '../../routes';
+import { useMeQuery } from '../../query-hooks/useMeQuery';
 
 interface Props {
 	open: boolean;
@@ -14,6 +20,7 @@ interface Props {
 
 const NavDrawer = ({ open, handleDrawerClose }: Props) => {
 	const classes = useStyles();
+	const meQuery = useMeQuery();
 
 	return (
 		<Drawer
@@ -29,9 +36,28 @@ const NavDrawer = ({ open, handleDrawerClose }: Props) => {
 				</IconButton>
 			</div>
 			<Divider />
-			<List>{/* mainListItems */}</List>
-			<Divider />
-			<List>{/* secondaryListItems */}</List>
+			<List>
+				{meQuery.data?.user ? (
+					<NavItem
+						itemIcon={ExitToAppIcon}
+						itemText='Logout'
+						linkTo={routes.logout.path}
+					/>
+				) : (
+					<>
+						<NavItem
+							itemIcon={PersonAddIcon}
+							itemText='Register'
+							linkTo={routes.register.path}
+						/>
+						<NavItem
+							itemIcon={LockOutlinedIcon}
+							itemText='Login'
+							linkTo={routes.login.path}
+						/>
+					</>
+				)}
+			</List>
 		</Drawer>
 	);
 };
