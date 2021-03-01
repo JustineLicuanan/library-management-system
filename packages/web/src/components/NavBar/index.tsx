@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { useStyles } from './styles';
 import { constants } from '../../constants';
 import { routes } from '../../routes';
+import { useMeQuery } from '../../query-hooks/useMeQuery';
 
 interface Props {
 	handleDrawerOpen: () => void;
@@ -17,6 +18,7 @@ interface Props {
 
 const NavBar = ({ handleDrawerOpen, open }: Props) => {
 	const classes = useStyles();
+	const meQuery = useMeQuery();
 
 	return (
 		<AppBar
@@ -40,7 +42,10 @@ const NavBar = ({ handleDrawerOpen, open }: Props) => {
 					noWrap
 					className={classes.title}
 				>
-					<Link to={routes.dashboard.path} className={classes.link}>
+					<Link
+						to={meQuery.data?.user ? routes.dashboard.path : routes.login.path}
+						className={classes.link}
+					>
 						{constants.title}
 					</Link>
 				</Typography>

@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { Formik } from 'formik';
@@ -30,7 +30,7 @@ const Register = () => {
 			<div className={classes.appBarSpacer} />
 			<div className={classes.paper}>
 				<Avatar className={classes.avatar}>
-					<LockOutlinedIcon />
+					<PersonAddIcon />
 				</Avatar>
 				<Typography component='h1' variant='h5'>
 					Register
