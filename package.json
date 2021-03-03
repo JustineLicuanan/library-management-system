@@ -2,7 +2,7 @@
 	"private": true,
 	"scripts": {
 		"commit": "git add . && git commit -m",
-		"push": "git push origin master",
+		"origin": "git push origin master",
 		"heroku": "git push heroku master",
 		"cwd:server": "yarn --cwd ./packages/server",
 		"cwd:web": "yarn --cwd ./packages/web",
