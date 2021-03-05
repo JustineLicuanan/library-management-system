@@ -38,8 +38,13 @@ const Register = () => {
 				<Formik
 					initialValues={{ name: '', phone: '', email: '', password: '' }}
 					validationSchema={registerSchema}
-					onSubmit={async (values) => {
-						await registerMutation.mutateAsync(values);
+					onSubmit={async (values, { setFieldError, setFieldValue }) => {
+						const data = await registerMutation.mutateAsync(values);
+
+						if (data.errors) {
+							setFieldValue('password', '', false);
+							setFieldError('email', data?.errors[0].message);
+						}
 					}}
 				>
 					{({

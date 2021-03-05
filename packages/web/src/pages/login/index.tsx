@@ -38,8 +38,13 @@ const Login = () => {
 				<Formik
 					initialValues={{ email: '', password: '' }}
 					validationSchema={loginSchema}
-					onSubmit={async (values) => {
-						await loginMutation.mutateAsync(values);
+					onSubmit={async (values, { setFieldError, setFieldValue }) => {
+						const data = await loginMutation.mutateAsync(values);
+
+						if (data.errors) {
+							setFieldValue('password', '', false);
+							setFieldError('email', data?.errors[0].message);
+						}
 					}}
 				>
 					{({
