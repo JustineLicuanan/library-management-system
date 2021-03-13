@@ -26,11 +26,11 @@ export const POST_addBook: RequestHandler<ParamsDictionary, any, Book> = async (
 	res.json({ book });
 };
 
-export const GET_books = async () => {
+export const GET_books: RequestHandler = async () => {
 	//
 };
 
-export const GET_book = async () => {
+export const GET_book: RequestHandler = async () => {
 	//
 };
 
@@ -42,6 +42,6 @@ export const PATCH_updateBook: RequestHandler<
 	//
 };
 
-export const DELETE_deleteBook = async () => {
+export const DELETE_deleteBook: RequestHandler = async () => {
 	//
 };
