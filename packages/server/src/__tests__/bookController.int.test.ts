@@ -15,5 +15,15 @@ afterAll(async () => {
 });
 
 describe('POST_addBook controller tests', () => {
-	//
+	it('validation works', async () => {
+		//
+	});
+
+	it('can add not used ISBN', async () => {
+		//
+	});
+
+	it("CAN'T add already used ISBN", async () => {
+		//
+	});
 });
